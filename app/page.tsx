@@ -14,11 +14,6 @@ export default function Home() {
   // モーダルの状態を管理するためのフック
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  // Createボタンが押されたときの処理
-  const PressStartButton = (): void => {
-    onOpen();
-  };
-
   return (
     <>
       <Container maxW={"3xl"}>
@@ -39,11 +34,7 @@ export default function Home() {
           </Text>
         </Center>
         <Center>
-          <Button
-            colorScheme="blue"
-            variant={"outline"}
-            onClick={PressStartButton}
-          >
+          <Button colorScheme="blue" variant={"outline"} onClick={onOpen}>
             プレイ
           </Button>
         </Center>
