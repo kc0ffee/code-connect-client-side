@@ -21,27 +21,22 @@ export const ReadyModal = (props: ModalProps) => {
   const [roomID, setRoomID] = useState("0000");
 
   // TODO: サーバーにルームの作成を要求する処理を非同期で呼び出す。
-  // TODO: 作成したルームに参加する
   return (
     <Modal isOpen={props.IsOpen} onClose={props.OnClose}>
       <ModalOverlay />
       <ModalContent width={"3xl"}>
-        <ModalHeader>Create Room</ModalHeader>
+        <ModalHeader>プログラミング タイプ診断</ModalHeader>
         <ModalCloseButton />
         <Divider />
         <ModalBody>
-          <Text fontSize={"xl"}>Room IDは {roomID} です。</Text>
-          <Text fontSize={"md"}>
-            一緒にプレイしたい人にRoomIDを共有してください。
-          </Text>
+          <Text fontSize={"md"}>プログラミングタイプの診断を始めますか？</Text>
         </ModalBody>
         <ModalFooter>
           <ButtonGroup variant="outline" spacing={6}>
-            {/* TODO: 現在ホストがキャンセルボタンを押すとルームはそのままに閉じているが、ホストが画面を消した場合ルームが解散されるように変更する。 */}
             <Button colorScheme="red" onClick={props.OnClose}>
-              Cancel
+              やめる
             </Button>
-            <Button colorScheme="blue">Start</Button>
+            <Button colorScheme="blue">始める</Button>
           </ButtonGroup>
         </ModalFooter>
       </ModalContent>
