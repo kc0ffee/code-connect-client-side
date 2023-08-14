@@ -17,9 +17,6 @@ import { ModalProps } from "@/types/modal";
 // Modalの表示・非表示は、呼び出し側のStateで管理するためここには書かない。
 
 export const ReadyModal = (props: ModalProps) => {
-  // ルームのIDを保存するState
-  const [roomID, setRoomID] = useState("0000");
-
   // TODO: サーバーにルームの作成を要求する処理を非同期で呼び出す。
   return (
     <Modal isOpen={props.IsOpen} onClose={props.OnClose}>
