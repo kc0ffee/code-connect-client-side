@@ -12,6 +12,7 @@ import {
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import { Text, Divider } from "@chakra-ui/react";
 import { ModalProps } from "@/types/modal";
+import Link from "next/link";
 
 // CreateRoomModalContent・JoinRoomModalContentはModalに表示するコンテンツを返す。
 // Modalの表示・非表示は、呼び出し側のStateで管理するためここには書かない。
@@ -33,7 +34,9 @@ export const ReadyModal = (props: ModalProps) => {
             <Button colorScheme="red" onClick={props.OnClose}>
               やめる
             </Button>
-            <Button colorScheme="blue">始める</Button>
+            <Button colorScheme="blue">
+              <Link href={"/play"}>始める</Link>
+            </Button>
           </ButtonGroup>
         </ModalFooter>
       </ModalContent>
