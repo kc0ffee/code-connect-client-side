@@ -50,7 +50,7 @@ export const CreateRoomModalContent = (props: ModalProps) => {
 };
 
 export const JoinRoomModalContent = (props: ModalProps) => {
-  const [roomID, setRoomID] = useState();
+  let RoomID: string = "";
   return (
     <Modal isOpen={props.IsOpen} onClose={props.OnClose}>
       <ModalOverlay />
@@ -62,7 +62,7 @@ export const JoinRoomModalContent = (props: ModalProps) => {
           <Text fontSize={"md"}>
             参加したいルームのルームIDを入力してください。
           </Text>
-          <Input value={roomID} placeholder="Room ID" className="my-5" />
+          <Input value={RoomID} placeholder="Room ID" className="my-5" />
         </ModalBody>
         <ModalFooter>
           <ButtonGroup variant="outline" spacing={6}>
