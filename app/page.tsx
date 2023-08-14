@@ -8,7 +8,7 @@ import {
   Container,
   useDisclosure,
 } from "@chakra-ui/react";
-import { CreateRoomModalContent } from "@/components/modal";
+import { ReadyModal } from "@/components/modal";
 
 export default function Home() {
   // モーダルの状態を管理するためのフック
@@ -50,7 +50,7 @@ export default function Home() {
           </Button>
         </Center>
       </Container>
-      <CreateRoomModalContent IsOpen={isOpen} OnClose={onClose} />
+      <ReadyModal IsOpen={isOpen} OnClose={onClose} />
     </>
   );
 }

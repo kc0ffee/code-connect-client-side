@@ -16,7 +16,7 @@ import { ModalProps } from "@/types/modal";
 // CreateRoomModalContent・JoinRoomModalContentはModalに表示するコンテンツを返す。
 // Modalの表示・非表示は、呼び出し側のStateで管理するためここには書かない。
 
-export const CreateRoomModalContent = (props: ModalProps) => {
+export const ReadyModal = (props: ModalProps) => {
   // ルームのIDを保存するState
   const [roomID, setRoomID] = useState("0000");
 
