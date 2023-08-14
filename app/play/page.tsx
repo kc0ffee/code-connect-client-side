@@ -39,6 +39,8 @@ export default function Play() {
     onOpen();
   };
 
+  // TODO: APIからデータを取ってくる処理を入れる。
+
   return (
     <>
       <Container maxW={"3xl"}>
