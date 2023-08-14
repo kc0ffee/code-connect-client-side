@@ -9,7 +9,7 @@ import {
   ModalOverlay,
 } from "@chakra-ui/react";
 
-import { Input, Button, ButtonGroup } from "@chakra-ui/react";
+import { Button, ButtonGroup } from "@chakra-ui/react";
 import { Text, Divider } from "@chakra-ui/react";
 import { ModalProps } from "@/types/modal";
 
