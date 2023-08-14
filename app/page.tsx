@@ -7,12 +7,13 @@ import {
   ButtonGroup,
   Button,
   Container,
-  Modal,
-  ModalContent,
-  ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import {
+  CreateRoomModalContent,
+  JoinRoomModalContent,
+} from "@/components/modal";
 
 const ModalMode = {
   create: "create",
@@ -68,13 +69,11 @@ export default function Home() {
           </ButtonGroup>
         </Center>
       </Container>
-
-      <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-          {mode === ModalMode.create ? "Create" : "Join"}
-        </ModalContent>
-      </Modal>
+      {mode === ModalMode.create ? (
+        <CreateRoomModalContent isOpen={isOpen} onClose={onClose} />
+      ) : (
+        <JoinRoomModalContent isOpen={isOpen} onClose={onClose} />
+      )}
     </>
   );
 }
