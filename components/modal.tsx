@@ -23,7 +23,7 @@ export const CreateRoomModalContent = (props: ModalProps) => {
   // TODO: サーバーにルームの作成を要求する処理を非同期で呼び出す。
   // TODO: 作成したルームに参加する
   return (
-    <Modal isOpen={props.isOpen} onClose={props.onClose}>
+    <Modal isOpen={props.IsOpen} onClose={props.OnClose}>
       <ModalOverlay />
       <ModalContent width={"3xl"}>
         <ModalHeader>Create Room</ModalHeader>
@@ -38,7 +38,7 @@ export const CreateRoomModalContent = (props: ModalProps) => {
         <ModalFooter>
           <ButtonGroup variant="outline" spacing={6}>
             {/* TODO: 現在ホストがキャンセルボタンを押すとルームはそのままに閉じているが、ホストが画面を消した場合ルームが解散されるように変更する。 */}
-            <Button colorScheme="red" onClick={props.onClose}>
+            <Button colorScheme="red" onClick={props.OnClose}>
               Cancel
             </Button>
             <Button colorScheme="blue">Start</Button>
@@ -52,7 +52,7 @@ export const CreateRoomModalContent = (props: ModalProps) => {
 export const JoinRoomModalContent = (props: ModalProps) => {
   const [roomID, setRoomID] = useState();
   return (
-    <Modal isOpen={props.isOpen} onClose={props.onClose}>
+    <Modal isOpen={props.IsOpen} onClose={props.OnClose}>
       <ModalOverlay />
       <ModalContent width={"3xl"}>
         <ModalHeader>Join Room</ModalHeader>
@@ -66,7 +66,7 @@ export const JoinRoomModalContent = (props: ModalProps) => {
         </ModalBody>
         <ModalFooter>
           <ButtonGroup variant="outline" spacing={6}>
-            <Button colorScheme="red" onClick={props.onClose}>
+            <Button colorScheme="red" onClick={props.OnClose}>
               Cancel
             </Button>
             <Button colorScheme="blue">Join</Button>

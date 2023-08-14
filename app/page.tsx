@@ -70,9 +70,9 @@ export default function Home() {
         </Center>
       </Container>
       {mode === ModalMode.create ? (
-        <CreateRoomModalContent isOpen={isOpen} onClose={onClose} />
+        <CreateRoomModalContent IsOpen={isOpen} OnClose={onClose} />
       ) : (
-        <JoinRoomModalContent isOpen={isOpen} onClose={onClose} />
+        <JoinRoomModalContent IsOpen={isOpen} OnClose={onClose} />
       )}
     </>
   );
