@@ -30,14 +30,12 @@ export default function Home() {
         <Center>
           <Text className="my-10" fontSize="2xl">
             Code
-            Connectでは、指定されたお題に沿ってコードを書きます。コードを書き終わったらSubmitボタンを押してください！。
+            Connectのコード診断では、テーマに沿ってコードを書いてもらいます。書いてもらったコードからあなたのプログラミングタイプを診断します。
           </Text>
         </Center>
         <Center>
           <Text className="my-10" fontSize="2xl">
-            Create
-            Roomボタンからルームを作成してプレイすることができます。また、友人とプレイをする場合はJoin
-            Roomから作成済みのルームに参加することができます。
+            "プレイ" ボタンからプレイを開始できます。あなたのタイプは一体…
           </Text>
         </Center>
         <Center>
@@ -46,7 +44,7 @@ export default function Home() {
             variant={"outline"}
             onClick={PressStartButton}
           >
-            プレイ！
+            プレイ
           </Button>
         </Center>
       </Container>
