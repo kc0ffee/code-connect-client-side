@@ -48,31 +48,3 @@ export const CreateRoomModalContent = (props: ModalProps) => {
     </Modal>
   );
 };
-
-export const JoinRoomModalContent = (props: ModalProps) => {
-  let RoomID: string = "";
-  return (
-    <Modal isOpen={props.IsOpen} onClose={props.OnClose}>
-      <ModalOverlay />
-      <ModalContent width={"3xl"}>
-        <ModalHeader>Join Room</ModalHeader>
-        <ModalCloseButton />
-        <Divider />
-        <ModalBody>
-          <Text fontSize={"md"}>
-            参加したいルームのルームIDを入力してください。
-          </Text>
-          <Input value={RoomID} placeholder="Room ID" className="my-5" />
-        </ModalBody>
-        <ModalFooter>
-          <ButtonGroup variant="outline" spacing={6}>
-            <Button colorScheme="red" onClick={props.OnClose}>
-              Cancel
-            </Button>
-            <Button colorScheme="blue">Join</Button>
-          </ButtonGroup>
-        </ModalFooter>
-      </ModalContent>
-    </Modal>
-  );
-};

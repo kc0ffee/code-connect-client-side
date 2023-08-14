@@ -4,36 +4,18 @@ import {
   Heading,
   Text,
   Center,
-  ButtonGroup,
   Button,
   Container,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useState } from "react";
-import {
-  CreateRoomModalContent,
-  JoinRoomModalContent,
-} from "@/components/modal";
-
-const ModalMode = {
-  create: "create",
-  join: "join",
-};
+import { CreateRoomModalContent } from "@/components/modal";
 
 export default function Home() {
   // モーダルの状態を管理するためのフック
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [mode, setMode] = useState(ModalMode.create);
 
   // Createボタンが押されたときの処理
-  const CreateButtonPress = (): void => {
-    setMode(ModalMode.create);
-    onOpen();
-  };
-
-  // Joinボタンが押されたときの処理
-  const JoinButtonPress = (): void => {
-    setMode(ModalMode.join);
+  const PressStartButton = (): void => {
     onOpen();
   };
 
@@ -59,21 +41,16 @@ export default function Home() {
           </Text>
         </Center>
         <Center>
-          <ButtonGroup variant="outline" spacing={6}>
-            <Button colorScheme="blue" onClick={CreateButtonPress}>
-              Create Room
-            </Button>
-            <Button colorScheme="blue" onClick={JoinButtonPress}>
-              Join Room
-            </Button>
-          </ButtonGroup>
+          <Button
+            colorScheme="blue"
+            variant={"outline"}
+            onClick={PressStartButton}
+          >
+            Start
+          </Button>
         </Center>
       </Container>
-      {mode === ModalMode.create ? (
-        <CreateRoomModalContent IsOpen={isOpen} OnClose={onClose} />
-      ) : (
-        <JoinRoomModalContent IsOpen={isOpen} OnClose={onClose} />
-      )}
+      <CreateRoomModalContent IsOpen={isOpen} OnClose={onClose} />
     </>
   );
 }
