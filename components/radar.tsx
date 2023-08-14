@@ -39,7 +39,7 @@ export const ResultRadarChart = (props: ResultRadarChartProps) => {
       cx={300}
       cy={250}
       outerRadius={150}
-      width={500}
+      width={600}
       height={500}
       data={data}
     >
