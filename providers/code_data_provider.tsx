@@ -1,8 +1,8 @@
-import { CodeResponse } from "@/api";
 import { CodeDataContext } from "./code_data_context";
+import { CreatedCodeData } from "@/types/code";
 
 type Props = {
-  data: CodeResponse;
+  data: CreatedCodeData;
   children: React.ReactNode;
 };
 
