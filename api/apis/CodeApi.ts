@@ -32,6 +32,10 @@ export interface ApiCodePostRequest {
     postBody: PostBody;
 }
 
+export interface ApiResultGetRequest {
+    id?: number;
+}
+
 /**
  * 
  */
@@ -73,8 +77,12 @@ export class CodeApi extends runtime.BaseAPI {
     /**
      * IDから評価結果を取得する
      */
-    async apiResultGetRaw(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Score>> {
+    async apiResultGetRaw(requestParameters: ApiResultGetRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<Score>> {
         const queryParameters: any = {};
+
+        if (requestParameters.id !== undefined) {
+            queryParameters['id'] = requestParameters.id;
+        }
 
         const headerParameters: runtime.HTTPHeaders = {};
 
@@ -91,8 +99,8 @@ export class CodeApi extends runtime.BaseAPI {
     /**
      * IDから評価結果を取得する
      */
-    async apiResultGet(initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Score> {
-        const response = await this.apiResultGetRaw(initOverrides);
+    async apiResultGet(requestParameters: ApiResultGetRequest = {}, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<Score> {
+        const response = await this.apiResultGetRaw(requestParameters, initOverrides);
         return await response.value();
     }
 
