@@ -20,10 +20,7 @@ export default function RootLayout({
       <body>
         <CodeDataProvider
           data={{
-            id: -1,
-            themeId: -1,
             code: "",
-            timeStamp: "",
           }}
         >
           <ChakraProvider>{children}</ChakraProvider>
