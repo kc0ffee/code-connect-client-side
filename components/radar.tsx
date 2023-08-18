@@ -14,11 +14,6 @@ export const ResultRadarChart = (props: ResultRadarChartProps) => {
       fullMark: 2,
     },
     {
-      title: "Max indent size",
-      score: props.indent_size,
-      fullMark: 2,
-    },
-    {
       title: "Token count",
       score: props.token_count,
       fullMark: 2,
@@ -29,8 +24,8 @@ export const ResultRadarChart = (props: ResultRadarChartProps) => {
       fullMark: 2,
     },
     {
-      title: "Function count",
-      score: props.function_count,
+      title: "Function Length",
+      score: props.function_len,
       fullMark: 2,
     },
   ];
