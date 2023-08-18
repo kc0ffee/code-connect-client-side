@@ -21,7 +21,7 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React, { useEffect, useState, useContext } from "react";
-import { CodeApi, Configuration, Theme, ThemeApi } from "@/api";
+import { Configuration, Theme, ThemeApi } from "@/api";
 import { CodeDataContext } from "@/providers/code_data_context";
 
 export default function Play() {
@@ -50,34 +50,10 @@ export default function Play() {
       .apiThemeGet()
       .then((res) => {
         setTheme(res);
+        CodeData.themeId = res.id != undefined ? res.id : 0;
       })
       .catch((err) => {
         console.error(err);
-      });
-  };
-
-  // コードを送信する
-  const SendCode: any = async () => {
-    const conf = new Configuration({
-      basePath: process.env.NEXT_PUBLIC_API_CODE_URL,
-    });
-    await new CodeApi(conf)
-      .apiCodePost({
-        postBody: {
-          themeId: 1,
-          language: language,
-          code: Buffer.from(code).toString("base64"),
-        },
-      })
-      .then((res) => {
-        CodeData.code = code;
-        CodeData.id = res.id;
-        CodeData.themeId = res.themeId;
-        CodeData.timeStamp = res.timeStamp;
-      })
-      .catch((e) => {
-        console.error(e);
-        return;
       });
   };
 
@@ -97,11 +73,18 @@ export default function Play() {
   const TextareaChangeHandler = (e: any) => {
     const value = e.target.value;
     setCode(value);
+    CodeData.code = code;
+  };
+
+  const ChangeLanguage = (lang: string) => {
+    setLanguage(lang);
   };
 
   // Initialize
   useEffect(() => {
     GetThemeAsync();
+    CodeData.language = language;
+    CodeData.code = code;
   }, []);
 
   return (
@@ -118,7 +101,7 @@ export default function Play() {
           </Heading>
         </Center>
         <Center>
-          <RadioGroup onChange={setLanguage} value={language}>
+          <RadioGroup onChange={ChangeLanguage} value={language}>
             <Stack direction={"row"}>
               <Radio value="go" size="lg">
                 Go
@@ -184,7 +167,7 @@ export default function Play() {
                     <Link href={"/"}> 回答をやめる</Link>
                   </Button>
                 ) : (
-                  <Button colorScheme="blue" onClick={SendCode}>
+                  <Button colorScheme="blue">
                     <Link href={"/result"}>送信する</Link>
                   </Button>
                 )}
