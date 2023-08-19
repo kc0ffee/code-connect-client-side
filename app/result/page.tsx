@@ -2,6 +2,7 @@
 
 import { CodeApi, CodeResponse, Configuration, Score } from "@/api";
 import { ResultRadarChart } from "@/components/radar";
+import { TypeResult } from "@/components/typeResult";
 import { CodeDataContext } from "@/providers/code_data_context";
 import { Center, Container, Heading, VStack, Text } from "@chakra-ui/react";
 import { useContext, useEffect, useState } from "react";
@@ -82,6 +83,7 @@ export default function Result() {
               あなたのタイプは、
               {score.yourType != undefined ? score.yourType : "[Your Type]"}です
             </Text>
+            <TypeResult type={score.yourType ?? ""} />
             <ResultRadarChart
               line_count={
                 score.codeLine != undefined ? Math.floor(score.codeLine / 2) : 0
