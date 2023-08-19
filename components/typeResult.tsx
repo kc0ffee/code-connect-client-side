@@ -61,7 +61,7 @@ const typeDescription = (type: string) => {
 const TypeImage = (type: string) => {
   switch (type) {
     case "analyst":
-      return {src: "/vercel.png"};
+      return {src: "/analyst.png"};
     case "gatekeeper":
       return {src: "/gatekeeper.png"};
     case "diplomat":
