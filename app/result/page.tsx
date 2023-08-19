@@ -83,7 +83,9 @@ export default function Result() {
               {score.yourType != undefined ? score.yourType : "[Your Type]"}です
             </Text>
             <ResultRadarChart
-              line_count={score.codeLine != undefined ? score.codeLine : 0}
+              line_count={
+                score.codeLine != undefined ? Math.floor(score.codeLine / 2) : 0
+              }
               token_count={score.tokenCount != undefined ? score.tokenCount : 0}
               token_length={score.tokenLen != undefined ? score.tokenLen : 0}
               function_len={
